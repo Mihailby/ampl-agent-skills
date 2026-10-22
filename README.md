@@ -29,6 +29,12 @@ The `skill/` folder is the installable unit. How you load it depends on your age
 
 Consult your specific tool's documentation for the exact mechanism it expects.
 
+### Quick install via skill.ampl.com
+
+[skill.ampl.com](https://skill.ampl.com) redirects to this repository, so if your AI tool can browse the web or run commands (e.g. Claude Code, Codex, Cursor), you can simply ask it to install the skill for you:
+
+> Install the AMPL agent skill from https://skill.ampl.com — download the `.skill` file from the latest release, unzip it, and add the `ampl-skill` folder to your skills directory.
+
 ## Versioning
 
 Releases are tagged (`v1.0.0`, `v1.1.0`, ...) at each point a new version is distributed. A GitHub Action creates the release and its `.skill` package automatically whenever the top version in `CHANGELOG.md` changes. See [CHANGELOG.md](./skill/CHANGELOG.md) for what changed in each version. There's no auto-update mechanism — updating an already-installed copy of the skill means re-downloading and re-uploading/replacing it wherever it's installed.
