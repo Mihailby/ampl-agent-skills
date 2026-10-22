@@ -31,13 +31,13 @@ Consult your specific tool's documentation for the exact mechanism it expects.
 
 ### Quick install via skill.ampl.com
 
-[skill.ampl.com](https://skill.ampl.com) redirects to this repository, so if your AI tool can browse the web or run commands (e.g. Claude Code, Codex, Cursor), you can simply ask it to install the skill for you:
-
-> Install the AMPL agent skill from https://skill.ampl.com — download the `.skill` file from the latest release, unzip it, and add the `ampl-skill` folder to your skills directory.
-
-If you just want to use the skill for the current session without installing it, you can simply tell your AI tool:
+[skill.ampl.com](https://skill.ampl.com) redirects to this repository, so if your AI tool can browse the web or run commands (e.g. Claude Code, Codex, Cursor), you can use the skill for the current session without installing it by simply telling your AI tool:
 
 > load skill.ampl.com
+
+To install it permanently, ask your AI tool:
+
+> Install the AMPL agent skill from https://skill.ampl.com — download the `.skill` file from the latest release, unzip it, and add the `ampl-skill` folder to your skills directory.
 
 ## Versioning
 
