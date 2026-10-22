@@ -1,0 +1,48 @@
+name: Release skill
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read version from CHANGELOG
+        id: version
+        run: |
+          version=$(grep -m1 -oP '^## \[\K[0-9]+\.[0-9]+\.[0-9]+(?=\])' skill/CHANGELOG.md)
+          test -n "$version" || { echo "No version found in skill/CHANGELOG.md"; exit 1; }
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+          if gh release view "v$version" > /dev/null 2>&1; then
+            echo "Release v$version already exists; skipping."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Build zip
+        if: steps.version.outputs.exists != 'true'
+        id: zip
+        run: |
+          name="ampl-skill-${{ steps.version.outputs.tag }}.skill"
+          mkdir -p dist
+          cp -r skill dist/ampl-skill
+          (cd dist && zip -r "$name" ampl-skill)
+          echo "path=dist/$name" >> "$GITHUB_OUTPUT"
+
+      - name: Create release
+        if: steps.version.outputs.exists != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          ZIP: ${{ steps.zip.outputs.path }}
+        run: |
+          gh release create "$TAG" "$ZIP" --target "$GITHUB_SHA" --title "$TAG" \
+            --notes "See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/$TAG/skill/CHANGELOG.md)."

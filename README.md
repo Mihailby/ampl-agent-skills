@@ -25,13 +25,13 @@ CHANGELOG.md
 
 The `skill/` folder is the installable unit. How you load it depends on your agent or tool's Agent Skills support — generally either:
 - **Filesystem-based**: copy the contents of `skill/` into wherever your tool looks for installed skills (a local skills directory).
-- **Upload-based**: zip the `skill/` folder and upload it wherever your tool accepts skill packages.
+- **Upload-based**: download the `.skill` file from the latest [release](https://github.com/ampl/ampl-agent-skills/releases/latest) and upload it wherever your tool accepts skill packages (it's a standard zip archive, so you can rename it to `.zip` if your tool requires that).
 
 Consult your specific tool's documentation for the exact mechanism it expects.
 
 ## Versioning
 
-Releases are tagged (`v1.0.0`, `v1.1.0`, ...) at each point a new version is distributed. See [CHANGELOG.md](./skill/CHANGELOG.md) for what changed in each version. There's no auto-update mechanism — updating an already-installed copy of the skill means re-downloading and re-uploading/replacing it wherever it's installed.
+Releases are tagged (`v1.0.0`, `v1.1.0`, ...) at each point a new version is distributed. A GitHub Action creates the release and its `.skill` package automatically whenever the top version in `CHANGELOG.md` changes. See [CHANGELOG.md](./skill/CHANGELOG.md) for what changed in each version. There's no auto-update mechanism — updating an already-installed copy of the skill means re-downloading and re-uploading/replacing it wherever it's installed.
 
 ## Scope and limits
 
