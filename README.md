@@ -21,15 +21,7 @@ skill/
 CHANGELOG.md
 ```
 
-## Installing the skill
-
-The `skill/` folder is the installable unit. How you load it depends on your agent or tool's Agent Skills support — generally either:
-- **Filesystem-based**: copy the contents of `skill/` into wherever your tool looks for installed skills (a local skills directory).
-- **Upload-based**: download the `.skill` file from the latest [release](https://github.com/ampl/ampl-agent-skills/releases/latest) and upload it wherever your tool accepts skill packages (it's a standard zip archive, so you can rename it to `.zip` if your tool requires that).
-
-Consult your specific tool's documentation for the exact mechanism it expects.
-
-### Quick install via skill.ampl.com
+## Quick install via skill.ampl.com
 
 [skill.ampl.com](https://skill.ampl.com) redirects to this repository, so if your AI tool can browse the web or run commands (e.g. Claude Code, Codex, Cursor), you can use the skill for the current session without installing it by simply telling your AI tool:
 
@@ -38,6 +30,14 @@ Consult your specific tool's documentation for the exact mechanism it expects.
 To install it permanently, ask your AI tool:
 
 > Install the AMPL agent skill from https://skill.ampl.com — download the `.skill` file from the latest release, unzip it, and add the `ampl-skill` folder to your skills directory.
+
+## Installing the skill
+
+The `skill/` folder is the installable unit. How you load it depends on your agent or tool's Agent Skills support — generally either:
+- **Filesystem-based**: copy the contents of `skill/` into wherever your tool looks for installed skills (a local skills directory).
+- **Upload-based**: download the `.skill` file from the latest [release](https://github.com/ampl/ampl-agent-skills/releases/latest) and upload it wherever your tool accepts skill packages (it's a standard zip archive, so you can rename it to `.zip` if your tool requires that).
+
+Consult your specific tool's documentation for the exact mechanism it expects.
 
 ## Versioning
 
