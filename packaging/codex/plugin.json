@@ -8,7 +8,7 @@
   },
   "homepage": "https://skill.ampl.com",
   "repository": "https://github.com/ampl/ampl-agent-skills",
-  "license": "LICENSE-TBD",
+  "license": "MIT",
   "keywords": ["ampl", "optimization", "operations-research", "linear-programming", "mixed-integer-programming", "amplpy"],
   "skills": "./skills/",
   "interface": {
